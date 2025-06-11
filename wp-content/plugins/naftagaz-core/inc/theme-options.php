@@ -125,26 +125,33 @@ if (class_exists('CSF')) {
             ),
             // footer bottom links 
             array(
-                'id'     => 'footer_links_second',
-                'type'   => 'repeater',
-                'title'  => 'لینک‌های فوتر (سطر دوم)',
-                'fields' => array(
-                    array(
-                        'id'    => 'footer_link_title',
-                        'type'  => 'text',
-                        'title' => 'عنوان لینک',
-                    ),
-                    array(
-                        'id'    => 'footer_link_url',
-                        'type'  => 'text',
-                        'title' => 'آدرس لینک',
-                        'sanitize' => 'esc_url',
-                        'validate' => 'csf_validate_url',
-                    ),
-                ),
+                'id'      => 'footer_second_link_1_title',
+                'type'    => 'text',
+                'title'   => 'عنوان لینک اول (سطر دوم فوتر)',
+                'default' => 'سایت توسط VIDE INFRA',
             ),
-
-            // copyright
+            array(
+                'id'      => 'footer_second_link_1_url',
+                'type'    => 'text',
+                'title'   => 'لینک اول (سطر دوم فوتر)',
+                'default' => '#',
+                'sanitize' => 'esc_url',
+                'validate' => 'csf_validate_url',
+            ),
+            array(
+                'id'      => 'footer_second_link_2_title',
+                'type'    => 'text',
+                'title'   => 'عنوان لینک دوم (سطر دوم فوتر)',
+                'default' => 'سیاست حفظ حریم خصوصی',
+            ),
+            array(
+                'id'      => 'footer_second_link_2_url',
+                'type'    => 'text',
+                'title'   => 'لینک دوم (سطر دوم فوتر)',
+                'default' => '#',
+                'sanitize' => 'esc_url',
+                'validate' => 'csf_validate_url',
+            ),
             array(
                 'id'      => 'footer_copyright',
                 'type'    => 'text',

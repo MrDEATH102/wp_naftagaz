@@ -77,39 +77,38 @@
         </span>
       </div>
       <!-- start footer bottom links  -->
-      <?php
-      $footer_links_second = naftagaz_get_option('footer_links_second');
-      $footer_copyright = naftagaz_get_option('footer_copyright');
+<?php
+// لینک اول
+$link1_title = naftagaz_get_option('footer_second_link_1_title');
+$link1_url = naftagaz_get_option('footer_second_link_1_url');
 
-      if (empty($footer_copyright)) {
-        $footer_copyright = '© ۲۰۲۵ شرکت سهامی نفتاگاز';
-      }
-      ?>
+// لینک دوم
+$link2_title = naftagaz_get_option('footer_second_link_2_title');
+$link2_url = naftagaz_get_option('footer_second_link_2_url');
 
-      <div class="footer__detail footer__detail-second">
-        <?php
-        // آرایه پیش‌فرض برای لینک‌ها
-        $default_footer_links_second = array(
-          array('footer_link_title' => 'سایت توسط VIDE INFRA', 'footer_link_url' => '#'),
-          array('footer_link_title' => 'سیاست حفظ حریم خصوصی', 'footer_link_url' => '#'),
-        );
+// کپی‌رایت
+$footer_copyright = naftagaz_get_option('footer_copyright');
 
-        if (empty($footer_links_second)) {
-          $footer_links_second = $default_footer_links_second;
-        }
+// مقادیر پیش‌فرض:
+if (empty($link1_title)) { $link1_title = 'سایت توسط VIDE INFRA'; }
+if (empty($link1_url)) { $link1_url = '#'; }
+if (empty($link2_title)) { $link2_title = 'سیاست حفظ حریم خصوصی'; }
+if (empty($link2_url)) { $link2_url = '#'; }
+if (empty($footer_copyright)) { $footer_copyright = '© ۲۰۲۵ شرکت سهامی نفتاگاز'; }
+?>
 
-        // نمایش لینک‌ها
-        foreach ($footer_links_second as $item) {
-          echo '<a href="' . esc_url($item['footer_link_url']) . '" class="footer__detail-title footer__detail-tag">';
-          echo esc_html($item['footer_link_title']);
-          echo '</a>';
-        }
-        ?>
+<div class="footer__detail footer__detail-second">
+    <a href="<?php echo esc_url($link1_url); ?>" class="footer__detail-title footer__detail-tag">
+        <?php echo esc_html($link1_title); ?>
+    </a>
+    <a href="<?php echo esc_url($link2_url); ?>" class="footer__detail-title footer__detail-tag">
+        <?php echo esc_html($link2_title); ?>
+    </a>
+    <p class="footer__detail-title footer__detail-titleLast">
+        <?php echo esc_html($footer_copyright); ?>
+    </p>
+</div>
 
-        <p class="footer__detail-title footer__detail-titleLast">
-          <?php echo esc_html($footer_copyright); ?>
-        </p>
-      </div>
 
       <!-- end footer bottom links  -->
     </footer>
