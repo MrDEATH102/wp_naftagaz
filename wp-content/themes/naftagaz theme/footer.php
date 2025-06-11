@@ -1,6 +1,7 @@
     <footer>
       <div class="footer__detail footer__detail-one">
         <div class="footer__detail-contact">
+          <!-- start social icons dynamyc  -->
           <?php
           $footer_details = naftagaz_get_option('footer_detail_items');
 
@@ -28,8 +29,17 @@
               <i class="fas fa-chevron-down"></i>
             </span>
           </div>
+          <!-- end social icons dynamic  -->
+          <!-- start footer phone number dynamic  -->
+          <?php
+          $phone_number = naftagaz_get_option('footer_phone_number');
+          if (empty($phone_number)) {
+            $phone_number = '+7 495 589 12 00';
+          }
+          ?>
+          <p><?php echo esc_html($phone_number); ?></p>
 
-          <p>+7 495 589 12 00</p>
+          <!-- end footer phone number dynamic -->
         </div>
         <!-- start dynamic footer links  -->
         <ul class="footer__detail-list">
