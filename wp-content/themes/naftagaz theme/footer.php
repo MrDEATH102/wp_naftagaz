@@ -76,17 +76,42 @@
           </svg>
         </span>
       </div>
+      <!-- start footer bottom links  -->
+      <?php
+      $footer_links_second = naftagaz_get_option('footer_links_second');
+      $footer_copyright = naftagaz_get_option('footer_copyright');
+
+      if (empty($footer_copyright)) {
+        $footer_copyright = '© ۲۰۲۵ شرکت سهامی نفتاگاز';
+      }
+      ?>
+
       <div class="footer__detail footer__detail-second">
-        <a href="#" class="footer__detail-title footer__detail-tag">
-          سایت توسط VIDE INFRA
-        </a>
-        <a href="#" class="footer__detail-title footer__detail-tag">
-          سیاست حفظ حریم خصوصی
-        </a>
+        <?php
+        // آرایه پیش‌فرض برای لینک‌ها
+        $default_footer_links_second = array(
+          array('footer_link_title' => 'سایت توسط VIDE INFRA', 'footer_link_url' => '#'),
+          array('footer_link_title' => 'سیاست حفظ حریم خصوصی', 'footer_link_url' => '#'),
+        );
+
+        if (empty($footer_links_second)) {
+          $footer_links_second = $default_footer_links_second;
+        }
+
+        // نمایش لینک‌ها
+        foreach ($footer_links_second as $item) {
+          echo '<a href="' . esc_url($item['footer_link_url']) . '" class="footer__detail-title footer__detail-tag">';
+          echo esc_html($item['footer_link_title']);
+          echo '</a>';
+        }
+        ?>
+
         <p class="footer__detail-title footer__detail-titleLast">
-          © ۲۰۲۵ شرکت سهامی نفتاگاز
+          <?php echo esc_html($footer_copyright); ?>
         </p>
       </div>
+
+      <!-- end footer bottom links  -->
     </footer>
     <?php wp_footer(); ?>
     </body>

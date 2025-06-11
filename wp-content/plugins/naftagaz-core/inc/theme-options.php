@@ -122,6 +122,35 @@ if (class_exists('CSF')) {
 
                 ),
             ),
+            // footer bottom links 
+            array(
+                'id'     => 'footer_links_second',
+                'type'   => 'repeater',
+                'title'  => 'لینک‌های فوتر (سطر دوم)',
+                'fields' => array(
+                    array(
+                        'id'    => 'footer_link_title',
+                        'type'  => 'text',
+                        'title' => 'عنوان لینک',
+                    ),
+                    array(
+                        'id'    => 'footer_link_url',
+                        'type'  => 'text',
+                        'title' => 'آدرس لینک',
+                        'sanitize' => 'esc_url',
+                        'validate' => 'csf_validate_url',
+                    ),
+                ),
+            ),
+
+            // copyright
+            array(
+                'id'      => 'footer_copyright',
+                'type'    => 'text',
+                'title'   => 'متن کپی‌رایت فوتر',
+                'default' => '© ۲۰۲۵ شرکت سهامی نفتاگاز',
+            ),
+
 
 
         )
