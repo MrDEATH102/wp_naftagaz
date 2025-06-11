@@ -69,19 +69,13 @@ if (class_exists('CSF')) {
         'title'     => 'تنظیمات پابرگ',
         'icon'      => 'fa fa-arrow-down',
         'fields'    => array(
-            // footer phone number 
-            array(
-                'id'     => 'footer_phone_number',
-                'type'   => 'text',
-                'title'  => 'شماره تماس فوتر',
-                'default' => '+7 495 589 12 00',
-            ),
+
 
             //social repeater field
             array(
                 'id'     => 'footer_detail_items',
                 'type'   => 'repeater',
-                'title'  => 'آیتم‌های جزئیات فوتر',
+                'title'  => 'سوشیال مدیا',
                 'fields' => array(
                     array(
                         'id'    => 'detail_url',
@@ -97,6 +91,13 @@ if (class_exists('CSF')) {
                         'desc'  => 'مثلا: fas fa-paper-plane یا fa-solid fa-paper-plane',
                     ),
                 ),
+            ),
+            // footer phone number 
+            array(
+                'id'     => 'footer_phone_number',
+                'type'   => 'text',
+                'title'  => 'شماره تماس فوتر',
+                'default' => '+7 495 589 12 00',
             ),
 
 
