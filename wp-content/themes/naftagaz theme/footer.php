@@ -1,30 +1,34 @@
     <footer>
       <div class="footer__detail footer__detail-one">
         <div class="footer__detail-contact">
+          <?php
+          $footer_details = naftagaz_get_option('footer_detail_items');
+
+          // آرایه پیش‌فرض:
+          $default_footer_details = array(
+            array('detail_url' => '#', 'detail_icon' => 'fas fa-paper-plane'),
+            array('detail_url' => '#', 'detail_icon' => 'fas fa-paper-plane'),
+            array('detail_url' => '#', 'detail_icon' => 'fas fa-paper-plane'),
+          );
+
+          if (empty($footer_details)) {
+            $footer_details = $default_footer_details;
+          }
+          ?>
+
           <div class="footer__detail-items">
             <div class="footer__detail-icons">
-              <span class="footer__detail-icon">
-                <svg class="icons">
-                  <use href="#paper-airplane"></use>
-                </svg>
-              </span>
-              <span class="footer__detail-icon">
-                <svg class="icons">
-                  <use href="#paper-airplane"></use>
-                </svg>
-              </span>
-              <span class="footer__detail-icon">
-                <svg class="icons">
-                  <use href="#paper-airplane"></use>
-                </svg>
-              </span>
+              <?php foreach ($footer_details as $item) : ?>
+                <a href="<?php echo esc_url($item['detail_url']); ?>" class="footer__detail-icon">
+                  <i class="<?php echo esc_attr($item['detail_icon']); ?>"></i>
+                </a>
+              <?php endforeach; ?>
             </div>
             <span class="footer__detail-button footer__detail-buttonSm">
-              <svg class="icons">
-                <use href="#chevron-down"></use>
-              </svg>
+              <i class="fas fa-chevron-down"></i>
             </span>
           </div>
+
           <p>+7 495 589 12 00</p>
         </div>
         <!-- start dynamic footer links  -->

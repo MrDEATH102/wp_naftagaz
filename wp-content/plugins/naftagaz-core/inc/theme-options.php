@@ -70,7 +70,30 @@ if (class_exists('CSF')) {
         'icon'      => 'fa fa-arrow-down',
         'fields'    => array(
 
-            //repeater field
+            //social repeater field
+            array(
+                'id'     => 'footer_detail_items',
+                'type'   => 'repeater',
+                'title'  => 'آیتم‌های جزئیات فوتر',
+                'fields' => array(
+                    array(
+                        'id'    => 'detail_url',
+                        'type'  => 'text',
+                        'title' => 'لینک',
+                        'sanitize' => 'esc_url',
+                        'validate' => 'csf_validate_url',
+                    ),
+                    array(
+                        'id'    => 'detail_icon',
+                        'type'  => 'text',
+                        'title' => 'کلاس آیکن (Font Awesome)',
+                        'desc'  => 'مثلا: fas fa-paper-plane یا fa-solid fa-paper-plane',
+                    ),
+                ),
+            ),
+
+
+            //links repeater field 
             array(
                 'id'     => 'fr_links',
                 'type'   => 'repeater',

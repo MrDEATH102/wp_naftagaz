@@ -4,6 +4,7 @@ function naftagaz_style_script()
 {
 
     // enqueue styles 
+    wp_enqueue_style('fontawesome', get_template_directory_uri() . '/assets/css/all.min.css', array(), '6.0.0', 'all');
     wp_enqueue_style('index', get_template_directory_uri() . '/assets/css/index.css', array(), '1.0.0', 'all');
     wp_enqueue_style('company', get_template_directory_uri() . '/assets/css/company.css', array(), '1.0.0', 'all');
     wp_enqueue_style('services_drilling', get_template_directory_uri() . 'assets/css/services_drilling.css', array(), '1.0.0', 'all');
