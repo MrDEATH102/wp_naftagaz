@@ -27,32 +27,34 @@
           </div>
           <p>+7 495 589 12 00</p>
         </div>
+        <!-- start dynamic footer links  -->
         <ul class="footer__detail-list">
-          <a href="#">
-            <li>درباره شرکت</li>
-          </a>
-          <a href="#">
-            <li>توسعه پایدار</li>
-          </a>
-          <a href="#">
-            <li>حفاری</li>
-          </a>
-          <a href="#">
-            <li>خدمات</li>
-          </a>
-          <a href="#">
-            <li>مرکز مطبوعات</li>
-          </a>
-          <a href="#">
-            <li>فرصت‌های شغلی</li>
-          </a>
-          <a href="#">
-            <li>تدارکات</li>
-          </a>
-          <a href="#">
-            <li>مخاطبین</li>
-          </a>
+          <?php
+          $footer_links = naftagaz_get_option('fr_links');
+
+          $default_links = array(
+            array('fr_links_titles' => 'درباره شرکت', 'fr_links_url' => '#'),
+            array('fr_links_titles' => 'توسعه پایدار', 'fr_links_url' => '#'),
+            array('fr_links_titles' => 'حفاری', 'fr_links_url' => '#'),
+            array('fr_links_titles' => 'خدمات', 'fr_links_url' => '#'),
+            array('fr_links_titles' => 'مرکز مطبوعات', 'fr_links_url' => '#'),
+            array('fr_links_titles' => 'فرصت‌های شغلی', 'fr_links_url' => '#'),
+            array('fr_links_titles' => 'تدارکات', 'fr_links_url' => '#'),
+            array('fr_links_titles' => 'مخاطبین', 'fr_links_url' => '#')
+          );
+
+          if (empty($footer_links)) {
+            $footer_links = $default_links;
+          }
+
+          foreach ($footer_links as $link) {
+            echo '<a href="' . esc_url($link['fr_links_url']) . '">';
+            echo '<li>' . esc_html($link['fr_links_titles']) . '</li>';
+            echo '</a>';
+          }
+          ?>
         </ul>
+        <!-- // end dynamic footer links -->
         <p class="footer__detail-titleSm">© ۲۰۲۵ شرکت سهامی نفتاگاز</p>
         <span class="footer__detail-button">
           <svg class="icons">
@@ -72,6 +74,7 @@
         </p>
       </div>
     </footer>
-<?php wp_footer(); ?>
-</body>
-</html>
+    <?php wp_footer(); ?>
+    </body>
+
+    </html>

@@ -10,7 +10,7 @@ if (class_exists('CSF')) {
 
     // Create options
     CSF::createOptions($prefix, array(
-        'framework_title'       => 'تنظیمات قالب وب دنج',
+        'framework_title'       => 'تنظیمات قالب نفت و گاز',
         'menu_title'            => 'تنظیمات قالب',
         'menu_slug'             => 'theme-options',
         'menu_icon'             => 'dashicons-admin-generic',
@@ -63,11 +63,44 @@ if (class_exists('CSF')) {
 
         )
     ));
+
+    CSF::createSection($prefix, array(
+        'id'        => 'footer _settings',
+        'title'     => 'تنظیمات پابرگ',
+        'icon'      => 'fa fa-arrow-down',
+        'fields'    => array(
+
+            //repeater field
+            array(
+                'id'     => 'fr_links',
+                'type'   => 'repeater',
+                'title'  => 'لینک های فوتر',
+                'fields' => array(
+
+                    array(
+                        'id'    => 'fr_links_titles',
+                        'type'  => 'text',
+                        'title' => 'عنوان لینک',
+                    ),
+                    array(
+                        'id'        => 'fr_links_url',
+                        'type'      => 'text',
+                        'title'     => 'آدرس لینک',
+                        'sanitize'  => 'esc_url',
+                        'validate'  => 'csf_validate_url',
+                    ),
+
+                ),
+            ),
+
+
+        )
+    ));
 }
 
 // A Custom function for get an option
-if (! function_exists('webdenj_get_option')) {
-    function webdenj_get_option($option = '', $default = null)
+if (! function_exists('naftagaz_get_option')) {
+    function naftagaz_get_option($option = '', $default = null)
     {
         $options = get_option('theme_options');
         return (isset($options[$option]) && $options[$option] != '') ? $options[$option] : $default;
